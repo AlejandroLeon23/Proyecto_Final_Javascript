@@ -34,17 +34,19 @@
     </div>
     <form id="forma">
         <div class="agregar">
-            <div class="agregar_contenedor">
-                <select class="agregar_tipo" id="tipo">
-                    <option value="opcion1">Opcion 1</option>
-                    <input type="text" name="Descripción">
-                    <input type="number" name="Cantidad">
-                    <input type="number" name="Porcentaje">
-                </select>
-                <button
-            </div>
+          <div class="agregar_contenedor">
+            <select class="agregar_tipo" id="tipo">
+              <option value="ingreso" selected>+ Ingreso</option>
+              <option value="egreso">- Egreso</option>
+            </select>
+            <input type="text" class="agregar_descripcion" id="descripcion" value="Agregar Descripción">
+            <input type="number" class="agregar_valor" value="valor" step="any">
+            <button class="agregar_btn">
+              <ion-icon name="checkmark-circle-outline"></ion-icon>
+            </button>
+          </div>
         </div>
-    </form>
+      </form>
 </head>
 <body>
     
