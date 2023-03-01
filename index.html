@@ -40,6 +40,43 @@
             </select>
             <input type="text" class="agregar_descripcion" id="descripcion" value="Agregar Descripción">
             <input type="number" class="agregar_valor"  step="any">
+            <script>
+                // Crea la función totalIngresos
+                const totalIngresos = () => {
+                    let totalIngreso = 0;
+                    for (let ingreso of Object.values(ingresos)) {
+                      totalIngreso += ingreso;
+                    }
+                    return totalIngreso;
+                  };
+                  
+                // Crea la función totalEgresos
+                  const totalEgresos = () => {
+                    let totalEgreso = 0;
+                    for (let egreso of Object.values(egresos)) {
+                      totalEgreso += egreso;
+                    }
+                    return totalEgreso;
+                  };
+                // Crea la función cargarCabecero
+                  const cargarCabecero = () => {
+                    const presupuesto = totalIngresos() - totalEgresos();
+                    const porcentajeEgreso = totalEgresos() / totalIngresos();
+                    console.log(presupuesto);
+                    console.log(porcentajeEgreso);
+                    console.log(totalIngresos());
+                    console.log(totalEgresos());
+                  };
+                  // Define los arreglos
+                  let egresos = {
+                    Renta: 900,
+                    Ropa: 400,
+                  };
+                  let ingresos = {
+                    Quincena: 9000,
+                    Venta: 400,
+                  };
+                    </script>
             <button class="agregar_btn" onclick=cargarCabecero()>
               <ion-icon name="checkmark-circle-outline"></ion-icon>
             </button>
@@ -106,43 +143,7 @@
       </div>
 </head>
 <body>
-    <script>
-// Crea la función totalIngresos
-const totalIngresos = () => {
-    let totalIngreso = 0;
-    for (let ingreso of Object.values(ingresos)) {
-      totalIngreso += ingreso;
-    }
-    return totalIngreso;
-  };
-  
-// Crea la función totalEgresos
-  const totalEgresos = () => {
-    let totalEgreso = 0;
-    for (let egreso of Object.values(egresos)) {
-      totalEgreso += egreso;
-    }
-    return totalEgreso;
-  };
-// Crea la función cargarCabecero
-  const cargarCabecero = () => {
-    const presupuesto = totalIngresos() - totalEgresos();
-    const porcentajeEgreso = totalEgresos() / totalIngresos();
-    console.log(presupuesto);
-    console.log(porcentajeEgreso);
-    console.log(totalIngresos());
-    console.log(totalEgresos());
-  };
-  // Define los arreglos
-  let egresos = {
-    Renta: 900,
-    Ropa: 400,
-  };
-  let ingresos = {
-    Quincena: 9000,
-    Venta: 400,
-  };
-    </script>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <script type="module" src="https://unpkg.com/ionicons@5.4.0/dist/ionicons/ionicons.esm.js"></script>
 </body>
