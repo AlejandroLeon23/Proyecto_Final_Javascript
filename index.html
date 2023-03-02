@@ -41,11 +41,35 @@
             <input type="text" class="agregar_descripcion" id="descripcion" value="Agregar Descripción">
             <input type="number" class="agregar_valor"  step="any">
             <script>
+                // Define los arreglos
+                  let egresos =[
+                    {
+                      nombre:"renta",
+                      valor: 900,
+                    },
+                    {
+                      nombre:"ropa",
+                      valor:400,
+                    }
+                 ];
+
+                  let ingresos = [
+                    {
+                      nombre:"Quincena",
+                      valor: 9000,
+                    },
+                    {
+                      nombre:"venta",
+                      valor:400,
+
+                    }
+                  ];
+
                 // Crea la función totalIngresos
                 const totalIngresos = () => {
                     let totalIngreso = 0;
-                    for (let ingreso of Object.values(ingresos)) {
-                      totalIngreso += ingreso;
+                    for (let ingreso of ingresos) {
+                      totalIngreso += ingreso.valor;
                     }
                     return totalIngreso;
                   };
@@ -53,8 +77,8 @@
                 // Crea la función totalEgresos
                   const totalEgresos = () => {
                     let totalEgreso = 0;
-                    for (let egreso of Object.values(egresos)) {
-                      totalEgreso += egreso;
+                    for (let egreso of egresos) {
+                      totalEgreso += egreso.valor;
                     }
                     return totalEgreso;
                   };
@@ -67,15 +91,7 @@
                     console.log(totalIngresos());
                     console.log(totalEgresos());
                   };
-                  // Define los arreglos
-                  let egresos = {
-                    Renta: 900,
-                    Ropa: 400,
-                  };
-                  let ingresos = {
-                    Quincena: 9000,
-                    Venta: 400,
-                  };
+                  
                     </script>
             <button class="agregar_btn" onclick=cargarCabecero()>
               <ion-icon name="checkmark-circle-outline"></ion-icon>
