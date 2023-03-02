@@ -40,12 +40,20 @@
                   }
                   return totalEgreso;
                 };
+                
+                const formatoMoneda = (valor) => {
+                return valor.toLocaleString('es-MX', { style: 'currency', currency: 'MXN', minimumFractionDigits: 2 });
+                };
+
+                const formatoPorcentaje = (valor) => {
+                return valor.toLocaleString('es-MX', { style: 'percent', minimumFractionDigits: 2 });
+                };
               // Crea la función cargarCabecero
                 const cargarCabecero = () => {
                   const presupuesto = totalIngresos() - totalEgresos();
                   const porcentajeEgreso = totalEgresos() / totalIngresos();
-                  console.log(presupuesto);
-                  console.log(porcentajeEgreso);
-                  console.log(totalIngresos());
-                  console.log(totalEgresos());
+                  console.log(`Presupuesto: ${formatoMoneda(presupuesto)}`);
+                  console.log(`Porcentaje de egreso: ${formatoPorcentaje(porcentajeEgreso)}`);
+                  console.log(`Total de ingresos: ${formatoMoneda(totalIngresos())}`);
+                  console.log(`Total de egresos: ${formatoMoneda(totalEgresos())}`);
                 };
