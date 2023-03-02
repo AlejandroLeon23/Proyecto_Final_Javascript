@@ -1,5 +1,5 @@
 // Importar la calse dato
-const Dato = require('./Dato');
+const Dato = require('./Dato.js');
 
 //Hijo de dato
 class Egreso extends Dato {
