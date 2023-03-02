@@ -1,7 +1,7 @@
 
 // Import Ingreso and Egreso classes
-const Ingreso = require('./Ingreso.js');
-const Egreso = require('./Egreso.js');
+const Ingreso = require('./Ingreso');
+const Egreso = require('./Egreso');
 
 // Array Ingresos
 const ingresos = [
