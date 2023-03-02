@@ -1,27 +1,19 @@
 
-                // Define los arreglos
-                let egresos =[
-                  {
-                    nombre:"renta",
-                    valor: 900,
-                  },
-                  {
-                    nombre:"ropa",
-                    valor:400,
-                  }
-               ];
+// Import Ingreso and Egreso classes
+const Ingreso = require('./Ingreso.js');
+const Egreso = require('./Egreso.js');
 
-                let ingresos = [
-                  {
-                    nombre:"Quincena",
-                    valor: 9000,
-                  },
-                  {
-                    nombre:"venta",
-                    valor:400,
+// Create income array
+const ingresos = [
+  new Ingreso('Salario', 20000),
+  new Ingreso('Venta auto', 50000)
+];
 
-                  }
-                ];
+// Create expense array
+const egresos = [
+  new Egreso('Renta', 4000),
+  new Egreso('Ropa', 800)
+];
 
               // Crea la función totalIngresos
               const totalIngresos = () => {
