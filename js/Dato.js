@@ -4,19 +4,19 @@ class Dato {
       this._valor = valor;
     }
   
-    get  descripcion() {
+    getDescripcion() {
       return this._descripcion;
     }
   
-    set descripcion(descripcion) {
+    setDescripcion() {
       this._descripcion = descripcion;
     }
   
-    get valor() {
+    getValor() {
       return this._valor;
     }
   
-    set valor(valor) {
+    setValor(valor) {
       this._valor = valor;
     }
   }
