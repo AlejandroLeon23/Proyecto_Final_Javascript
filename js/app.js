@@ -44,11 +44,11 @@ const formatoPorcentaje = (valor) => {
 function cargarCabecero() {
 const presupuesto = totalIngresos() - totalEgresos();
 const porcentajeEgreso = totalEgresos() / totalIngresos();
-  console.log(`Presupuesto: ${formatoMoneda(presupuesto)}`);
-  console.log(`Porcentaje de egreso: ${formatoPorcentaje(porcentajeEgreso)}`);
-  console.log(`Total de ingresos: ${formatoMoneda(totalIngresos())}`);
-  console.log(`Total de egresos: ${formatoMoneda(totalEgresos())}`);
-  };
+console.log(`Presupuesto: ${formatoMoneda(presupuesto)}`);
+console.log(`Porcentaje de egreso: ${formatoPorcentaje(porcentajeEgreso)}`);
+console.log(`Total de ingresos: ${formatoMoneda(totalIngresos())}`);
+console.log(`Total de egresos: ${formatoMoneda(totalEgresos())}`);
+}
 
-  var boton1=document.getElementById("boton1")
-  boton1.addEventListener("click",cargarCabecero)
+  // var boton1=document.getElementById("boton1")
+  // boton1.addEventListener("click",cargarCabecero)
