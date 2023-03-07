@@ -1,23 +1,23 @@
 class Dato {
     constructor(descripcion, valor) {
-      this.descripcion = descripcion;
-      this.valor = valor;
+      this._descripcion = descripcion;
+      this._valor = valor;
     }
   
-    get descripcion() {
-      return this.descripcion;
+    get  descripcion() {
+      return this._descripcion;
     }
   
     set descripcion(descripcion) {
-      this.descripcion = descripcion;
+      this._descripcion = descripcion;
     }
   
     get valor() {
-      return this.valor;
+      return this._valor;
     }
   
     set valor(valor) {
-      this.valor = valor;
+      this._valor = valor;
     }
   }
   

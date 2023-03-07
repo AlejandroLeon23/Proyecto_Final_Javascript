@@ -4,7 +4,7 @@ import { Dato } from "./Dato.js";
 // Define la clase Ingreso que extiende de la clase Dato
 export class Egreso extends Dato {
   // Define la variable estática contadorIngresos e iguálala a 0
-  static contadorEgresos = 0;
+  static _contadorEgresos = 0;
 
   // Define el constructor de la clase que recibe los parámetros descripción y valor
   constructor(descripcion, valor) {
@@ -12,12 +12,12 @@ export class Egreso extends Dato {
     super(descripcion, valor);
 
     // Define el atributo _id con el valor de la variable estática contadorIngresos preincrementada
-    this.id = ++Egreso.contadorEgresos;
+    this._id = ++Egreso._contadorEgresos;
   }
 
   // Crea el método get id, el cual regresa el valor de this._id
   get id() {
-    return this.id;
+    return this._id;
   }
 }
   
