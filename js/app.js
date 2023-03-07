@@ -41,7 +41,7 @@ const formatoPorcentaje = (valor) => {
   return valor.toLocaleString('es-MX', { style: 'percent', minimumFractionDigits: 2 });
   };
 // Crea la función cargarCabecero
-const cargarCabecero = () => {
+function cargarCabecero() {
 const presupuesto = totalIngresos() - totalEgresos();
 const porcentajeEgreso = totalEgresos() / totalIngresos();
   console.log(`Presupuesto: ${formatoMoneda(presupuesto)}`);
