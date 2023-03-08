@@ -146,11 +146,11 @@ const cargarEgresos = () => {
 const crearIngresoHTML = (ingreso) => {
   const ingresoHTML = `
     <div class="elemento limpiarEstilos">
-      <div class="elemento-descripcion">${ingreso.descripcion}</div>
+      <div class="elemento_descripcion">${ingreso._descripcion}</div>
       <div class="derecha limpiarEstilos">
-        <div class="elemento-valor">${formatoMoneda(ingreso.valor)}</div>
-        <div class="elemento-delete">
-          <button class='elemento-delete--btn'>
+        <div class="elemento_valor">${formatoMoneda(ingreso._valor)}</div>
+        <div class="elemento_eliminar">
+          <button class='elemento_eliminar--btn'>
             <ion-icon name='close-circle-outline'
             onclick='eliminarIngreso(${ingreso.id})'></ion-icon>
           </button>
@@ -164,14 +164,13 @@ const crearIngresoHTML = (ingreso) => {
 const crearEgresoHTML = (egreso) => {
   let egresoHTML = `
     <div class="elemento limpiarEstilos">
-      <div class="elemento-descripcion">${egreso.descripcion}</div>
+      <div class="elemento_descripcion">${egreso._descripcion}</div>
       <div class="derecha limpiarEstilos">
-        <div class="elemento-valor">${formatoMoneda(egreso.valor)}</div>
-        <div class="elemento-delete">
-          <button class="elemento-delete--btn">
-            <i class="fas fa-trash-alt"
-              onclick="eliminarEgreso(${egreso.id})">
-            </i>
+        <div class="elemento_valor">${formatoMoneda(egreso._valor)}</div>
+        <div class="elemento_eliminar">
+          <button class="elemento-eliminar--btn">
+            <ion-icon class="close-circle-outline" 
+            onclick="eliminarEgreso(${egreso.id})"></ion-icon>
           </button>
         </div>
       </div>
@@ -187,11 +186,18 @@ const eliminarEgreso = (id) => {
   cargarEgresos();
 };
 
+const eliminarIngreso = (id) => {
+  const indiceEliminar = ingresos.findIndex((ingreso) => ingreso.id === id);
+  ingresos.splice(indiceEliminar, 1);
+  cargarCabecero();
+  cargarEgresos();
+};
+
 const agregarDato = () => {
   const forma = document.getElementById("forma");
-  const tipo = forma.tipo.value;
-  const descripcion = forma.descripcion.value;
-  const valor = forma.valor.value;
+  const tipo = document.getElementById("tipo").value;
+  const descripcion = document.getElementById("descripcion").value;
+  const valor = document.getElementById("valor").value;
 
   if (descripcion !== "" && valor !== "") {
     if (tipo === "ingreso") {
