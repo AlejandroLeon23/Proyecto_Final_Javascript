@@ -109,16 +109,22 @@ const formatoPorcentaje = (valor) => {
   };
 // Crea la función cargarCabecero
 const  cargarCabecero = () => {
-  console.log(totalIngresos)
-  console.log(totalEgresos)
   const presupuesto = totalIngresos() - totalEgresos();
   const porcentajeEgreso = totalEgresos() / totalIngresos();
-  console.log(`Presupuesto: ${formatoMoneda(presupuesto)}`);
-  console.log(`Porcentaje de egreso: ${formatoPorcentaje(porcentajeEgreso)}`);
-  console.log(`Total de ingresos: ${formatoMoneda(totalIngresos())}`);
-  console.log(`Total de egresos: ${formatoMoneda(totalEgresos())}`);
+  const presupuestoElement = document.getElementById('presupuesto');
+  const porcentajeElement = document.getElementById('porcentaje');
+  const ingresosElement = document.getElementById('ingresos');
+  const egresosElement = document.getElementById('egresos');
+
+  presupuestoElement.innerHTML = formatoMoneda(presupuesto);
+  porcentajeElement.innerHTML = formatoPorcentaje(porcentajeEgreso);
+  ingresosElement.innerHTML = formatoMoneda(totalIngresos());
+  egresosElement.innerHTML = formatoMoneda(totalEgresos(presupuesto));
 }
 
+
+
+document.body.onload=cargarCabecero()
   
   //var boton1=document.getElementById("boton1")
   //boton1.addEventListener("click",cargarCabecero)
