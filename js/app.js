@@ -71,7 +71,8 @@
 // Array Ingresos
 let ingresos = [
  new Ingreso ('Salario', 20000),
- new Ingreso ('Venta auto', 50000)
+ new Ingreso ('Venta auto', 50000),
+ new Ingreso ('Venta Tamales', 10000)
 ]
 
 
@@ -79,7 +80,8 @@ let ingresos = [
 // Array Egresos
 let egresos = [
   new Egreso('Renta', 4000),
-  new Egreso('Ropa', 800)
+  new Egreso('Ropa', 800),
+  new Egreso('Tacos', 35800)
 ]
 
 
@@ -122,7 +124,87 @@ const  cargarCabecero = () => {
   egresosElement.innerHTML = formatoMoneda(totalEgresos(presupuesto));
 }
 
+const cargarIngresos = () => {
+  let ingresosHTML = '';
 
+  for (const ingreso of ingresos) {
+    ingresosHTML += crearIngresoHTML(ingreso);
+  }
+
+  const listaIngresos = document.getElementById('lista-ingresos');
+  listaIngresos.innerHTML = ingresosHTML;
+};
+const cargarEgresos = () => {
+  let egresosHTML = '';
+  for (const egreso of egresos) {
+    egresosHTML += crearEgresoHTML(egreso);
+  }
+  const listaEgresos = document.getElementById('lista-egresos');
+  listaEgresos.innerHTML = egresosHTML;
+}
+
+const crearIngresoHTML = (ingreso) => {
+  const ingresoHTML = `
+    <div class="elemento limpiarEstilos">
+      <div class="elemento-descripcion">${ingreso.descripcion}</div>
+      <div class="derecha limpiarEstilos">
+        <div class="elemento-valor">${formatoMoneda(ingreso.valor)}</div>
+        <div class="elemento-delete">
+          <button class='elemento-delete--btn'>
+            <ion-icon name='close-circle-outline'
+            onclick='eliminarIngreso(${ingreso.id})'></ion-icon>
+          </button>
+        </div>
+      </div>
+    </div>
+  `;
+
+  return ingresoHTML;
+};
+const crearEgresoHTML = (egreso) => {
+  let egresoHTML = `
+    <div class="elemento limpiarEstilos">
+      <div class="elemento-descripcion">${egreso.descripcion}</div>
+      <div class="derecha limpiarEstilos">
+        <div class="elemento-valor">${formatoMoneda(egreso.valor)}</div>
+        <div class="elemento-delete">
+          <button class="elemento-delete--btn">
+            <i class="fas fa-trash-alt"
+              onclick="eliminarEgreso(${egreso.id})">
+            </i>
+          </button>
+        </div>
+      </div>
+    </div>
+  `;
+  return egresoHTML;
+};
+
+const eliminarEgreso = (id) => {
+  const indiceEliminar = egresos.findIndex((egreso) => egreso.id === id);
+  egresos.splice(indiceEliminar, 1);
+  cargarCabecero();
+  cargarEgresos();
+};
+
+const agregarDato = () => {
+  const forma = document.getElementById("forma");
+  const tipo = forma.tipo.value;
+  const descripcion = forma.descripcion.value;
+  const valor = forma.valor.value;
+
+  if (descripcion !== "" && valor !== "") {
+    if (tipo === "ingreso") {
+      ingresos.push(new Ingreso(descripcion, +valor));
+      cargarCabecero();
+      cargarIngresos();
+    } else if (tipo === "egreso") {
+      egresos.push(new Egreso(descripcion, +valor));
+      cargarCabecero();
+      cargarEgresos();
+    }
+  }
+};
 
 document.body.onload=cargarCabecero()
   

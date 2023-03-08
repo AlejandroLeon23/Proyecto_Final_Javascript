@@ -8,7 +8,7 @@
     <link rel="stylesheet" type="text/css" href="css/estilos.css">
     <title>Presupuesto Disponible</title>
   </head>
-  <body onload="cargarCabecero()">
+  <body onload="cargarCabecero(), cargarIngresos(), cargarEgresos()">
     <div class="cabecero">
         <div class="presupuesto">
             <div class="presupuesto_titulo">Presupuesto Disponible
@@ -34,7 +34,7 @@
             </div>
         </div>
     </div>
-    <form id="forma">
+    <form id="forma" onsubmit="return false">
         <div class="agregar">
           <div class="agregar_contenedor">
             <select class="agregar_tipo" id="tipo">
@@ -43,7 +43,7 @@
             </select>
             <input type="text" class="agregar_descripcion" id="descripcion" value="Agregar Descripción">
             <input type="number" class="agregar_valor"  step="any">
-                      <button id="boton1" type="button" class="agregar_btn" >
+                      <button id="boton1" type="button" class="agregar_btn" onclick="agregarDato()" >
               <ion-icon name="checkmark-circle-outline"></ion-icon>
             </button>
           </div>
