@@ -70,18 +70,14 @@
 
 // Array Ingresos
 let ingresos = [
- new Ingreso ('Salario', 20000),
- new Ingreso ('Venta auto', 50000),
- new Ingreso ('Venta Tamales', 10000)
+
 ]
 
 
 
 // Array Egresos
 let egresos = [
-  new Egreso('Renta', 4000),
-  new Egreso('Ropa', 800),
-  new Egreso('Tacos', 35800)
+
 ]
 
 
@@ -150,8 +146,8 @@ const crearIngresoHTML = (ingreso) => {
       <div class="derecha limpiarEstilos">
         <div class="elemento_valor">${formatoMoneda(ingreso._valor)}</div>
         <div class="elemento_eliminar">
-          <button class='elemento_eliminar--btn'>
-            <ion-icon name='close-circle-outline'
+          <button class="elemento_eliminar--btn">
+            <ion-icon name="close-circle-outline"
             onclick='eliminarIngreso(${ingreso.id})'></ion-icon>
           </button>
         </div>
@@ -168,7 +164,7 @@ const crearEgresoHTML = (egreso) => {
       <div class="derecha limpiarEstilos">
         <div class="elemento_valor">${formatoMoneda(egreso._valor)}</div>
         <div class="elemento_eliminar">
-          <button class="elemento-eliminar--btn">
+          <button class="elemento_eliminar--btn">
             <ion-icon class="close-circle-outline" 
             onclick="eliminarEgreso(${egreso.id})"></ion-icon>
           </button>
